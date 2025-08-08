@@ -1,5 +1,11 @@
+
+
 public class Reversword3 {
     public static void main(String[] args) {
+        String ans = reversewords("Let's take LeetCode contest");
+        System.out.println(ans);
+        String ans2 = rev("Let's take LeetCode contest");
+        System.out.println(ans2);
         
 
     }
@@ -23,22 +29,19 @@ public class Reversword3 {
 public static String reversewords(String s)
 {
     char arr[] = s.toCharArray();
-    int startIndex = 0;
-    
-    for(int endIndex = 0 ; endIndex <= arr.length ; endIndex++)
-    {
-        if(endIndex == arr.length || endIndex == ' ')
+
+        int startIndex = 0 ;
+        for(int endIndex = 0 ; endIndex <= arr.length ; endIndex++)
         {
-            reverse(arr , startIndex , endIndex-1);
-            startIndex = endIndex + 1;
+            if(endIndex == arr.length || arr[endIndex] == ' ')
+            {
+                reverse(arr,startIndex,endIndex-1);
+                startIndex = endIndex+1;
+            }
 
         }
 
-
-    }
-
- 
-    return new String(arr);
+        return new String(arr);
 
 }
 
@@ -46,7 +49,7 @@ public static String reversewords(String s)
 //Because arrays are passed by reference in Java, not by value.
 //So even if you use a "void" function, any changes made to the array inside the function will directly change the original array in memory.
 
-public static void reverse(char arr[] , int startIndex , int endIndex)
+public static void reverse(char[] arr, int startIndex, int endIndex)
 {
     while(startIndex < endIndex)
     {
@@ -55,12 +58,47 @@ public static void reverse(char arr[] , int startIndex , int endIndex)
         arr[endIndex] = temp;
         startIndex++;
         endIndex--;
+
     }
 }
 
 
 
 //Reverse words in a string 3 (Using String Builder)
+
+public static String rev(String s )
+{
+    StringBuilder str = new StringBuilder(s);
+
+    int startIndex = 0;
+
+    for(int endIndex = 0 ; endIndex <= str.length(); endIndex++)
+    {
+        if(endIndex == str.length()  || str.charAt(endIndex) == ' ')
+        {
+            rev2(str , startIndex , endIndex-1);
+            startIndex = endIndex+1;
+        }
+    }
+
+    return new String(str);
+
+
+}
+
+public static void rev2(StringBuilder str , int startIndex , int endIndex)
+{
+    while(startIndex < endIndex)
+    {
+        char first = str.charAt(startIndex);
+        char last = str.charAt(endIndex);
+        str.setCharAt(startIndex, last);
+        str.setCharAt(endIndex, first);
+        startIndex++;
+        endIndex--;
+
+    }
+}
 
 
 
