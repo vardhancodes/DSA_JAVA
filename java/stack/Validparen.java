@@ -2,7 +2,8 @@ import java.util.Stack;
 public class Validparen{
      
     public static void main(String[] args) {
-        
+        boolean ans = isValid("(((({[]}))))");
+        System.out.println(ans);
     }
 
 //Valid Parenthesis 
