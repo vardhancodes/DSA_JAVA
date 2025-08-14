@@ -5,6 +5,8 @@ public class LargestRectangleInHistogram {
         int[] heights = {2,1,5,6,2,3};
         int ans = largestRectangleArea(heights);
         System.out.println(ans);
+        int ans2 = largestRectangleArea2(heights);
+        System.out.println(ans2);
         
     }
 
@@ -101,5 +103,58 @@ public static int largestRectangleArea(int[] heights) {
         }
 
         return max;
+    }
+
+
+//Approach -2 : 
+// This code calculates the largest rectangle area in a histogram using a monotonic stack approach.
+
+// Step 1: Create a stack to store indices of histogram bars.
+//         The stack will store indices in increasing order of their heights.
+//         This helps efficiently find the width of the largest rectangle for each bar.
+
+// Step 2: Store the number of bars `n` and initialize `max` to track the largest area found so far.
+
+// Step 3: Loop from i = 0 to i = n (inclusive):
+//         - We go to `i = n` to process all remaining bars in the stack by using a height of 0 at the end.
+//           This acts as a sentinel to flush out all rectangles still in the stack.
+
+// Step 4: For the current position `i`:
+//         - If `i == n`, we set element = 0 (sentinel bar).
+//         - Otherwise, element = heights[i].
+
+// Step 5: While the stack is not empty AND the current element is smaller than
+//         the bar at the index on top of the stack:
+//         - This means the bar at the stack’s top is ending here, so we calculate its area.
+//         - Pop the top index from the stack to get the height `h`.
+//         - Find the previous smaller index (ps):
+//               - If the stack is empty after popping, ps = -1 (means no smaller element on the left).
+//               - Otherwise, ps = stack.peek().
+//         - Calculate the width `w` as (i - ps - 1).
+//         - Update max area: max = Math.max(max, h * w).
+
+// Step 6: Push the current index `i` into the stack for future area calculations.
+
+// Step 7: After the loop, `max` contains the largest rectangle area found.
+//         If no area was computed (max == Integer.MIN_VALUE), return 0, else return max.
+
+public static int largestRectangleArea2(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+        int n = heights.length;
+        int max = Integer.MIN_VALUE;
+        for(int i = 0 ; i <=n ; i ++)
+        {
+            int element = (i == n)?0:heights[i];
+            while(!stack.isEmpty() && heights[stack.peek()]>element)
+            {
+                int h = heights[stack.pop()];
+                int ps = (stack.isEmpty())?-1:stack.peek();
+                int w = i - ps -1;
+                max = Math.max(max,h*w);
+            }
+            stack.push(i);
+        }
+
+        return (max==Integer.MIN_VALUE)?0:max;
     }
 }
