@@ -40,7 +40,7 @@ public class TowerOfHanoi {
         moves[0]++;
         toh(N-1 , from , aux , to , moves);
         System.out.println("move disk "+N+ " from rod "+from+" to rod "+aux);
-        toh(N-1 , from , to , aux , moves);
+        toh(N-1 , aux , to , from , moves);
         
     }
 }
