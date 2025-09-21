@@ -1,3 +1,4 @@
+
 public class fastexpo {
 
     public static void main(String[] args) {
