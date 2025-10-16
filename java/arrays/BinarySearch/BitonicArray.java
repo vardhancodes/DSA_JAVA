@@ -1,4 +1,5 @@
 
+
 //bitonic array must have 3 elements at least.
 //example : [2,4,5,9,11,7,2,1]
 

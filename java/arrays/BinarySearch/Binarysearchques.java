@@ -1,3 +1,4 @@
+
 public class Binarysearchques {
     
     public static void main(String[] args) {
