@@ -92,6 +92,7 @@ public static void recur(int []arr , int target , int ind , List<List<Integer>> 
         recur(arr, target-arr[ind], ind, list, sublist);
         sublist.remove(sublist.size()-1);
     }
+    
     recur(arr, target, ind+1, list, sublist);
 }
 }

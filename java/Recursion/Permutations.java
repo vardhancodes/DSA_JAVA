@@ -99,9 +99,6 @@ Result:
 [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,2,1],[3,1,2]]
 */
 
-
-
-
 public static void recur(int[] nums ,int ind , List<List<Integer>> list)
 {
     int n = nums.length;

@@ -33,7 +33,7 @@ Example Trace (arr = [1,2,3], target = 3):
 Start: target=3, sublist=[]
         |
        /|\
-      / | \
+      / | \ 
      /  |  \
     1   2   3
     |   |    \
@@ -57,14 +57,14 @@ Start: target=3, sublist=[]
 
         }
 
-        for(int i = ind ; i < n ; i ++)
-        {
-            if((i == ind || arr[i] != arr[i-1])&& arr[i] <= target)
+            for(int i = ind ; i < n ; i ++)
             {
-                sublist.add(arr[i]);
-                recur(arr, target-arr[i], i+1, list, sublist);
-                sublist.remove(sublist.size()-1);
+                if((i == ind || arr[i] != arr[i-1])&& arr[i] <= target)
+                {
+                    sublist.add(arr[i]);
+                    recur(arr, target-arr[i], i+1, list, sublist);
+                    sublist.remove(sublist.size()-1);
+                }
             }
-        }
     }
 }
