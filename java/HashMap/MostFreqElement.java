@@ -1,7 +1,7 @@
 import java.util.HashMap;
 public class MostFreqElement {
 
-    /*
+/*
 Approach:
 1. Use a HashMap to count the frequency of each element in the array.
 2. Maintain two variables:
@@ -39,10 +39,6 @@ Space Complexity: O(n)  // for storing frequencies in HashMap
             }
         }
         System.out.println(ans);
-
-        
-
-
 
     }
 }
