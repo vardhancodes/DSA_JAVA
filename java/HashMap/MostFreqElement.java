@@ -22,7 +22,7 @@ Space Complexity: O(n)  // for storing frequencies in HashMap
     public static void main(String[] args) {
         int arr[] = {1, 2, 2, 2, 4, 1};
         int ans = -1;
-        int maxF = 0;
+        int maxF = 0 ;
         HashMap<Integer,Integer> map = new HashMap<>();
 
         for(int i = 0 ; i < arr.length ; i++)
